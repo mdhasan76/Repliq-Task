@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {FaRegSadTear} from 'react-icons/fa'
-// import img404 from '../../assets/img404.jpg'
+import {FaRegSadTear} from 'react-icons/fa';
 
 const ErrorPage = () => {
     return (
