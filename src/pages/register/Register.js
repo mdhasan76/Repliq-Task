@@ -39,7 +39,7 @@ const Register = () => {
                                 </div>
 
                                 {/* Password Input  */}
-                                <div className="form-control">
+                                <div className="form-control mb-3">
                                     <label className="label pb-0">
                                         <span className="label-text text-lg font-semibold">Password</span>
                                     </label>
@@ -47,22 +47,15 @@ const Register = () => {
                                         <RiLockPasswordLine className='inline-block text-lg font-medium' />
                                         <input type="password" placeholder="Password" name='password' className="p-3 border-b-2 focus:outline-none focus:border-b-4 font-medium text-lg" />
                                     </div>
-                                    <label className="labelt">
-                                        <Link to="/" className="label-text-alt link link-hover block text-right  font-medium text-[16px] pt-2 opacity-80">Forgot password?</Link>
-                                    </label>
                                 </div>
                                 {/* <p className='text-sm text-red-500 py-2'>{error}</p> */}
                                 <div className="form-control">
-                                    <button className="btn text-white border-none rounded-full bg-gradient-to-bl from-indigo-500 to-primary">Login</button>
+                                    <button className="btn text-white border-none rounded-full bg-gradient-to-bl from-indigo-500 to-primary">Submit</button>
                                 </div>
                             </form>
-                            <div className="divider">OR</div>
-                            <div className='text-center'>
-                                {/* <button className='bg-slate-300 p-3 rounded-full' onClick={handleGoogle}><FcGoogle className=' text-3xl w-full' /></button> */}
-                            </div>
 
-                            <p className='block text-center text-sm label opacity-80'>new to MobileLy?
-                                <Link to='/register' className='label-text-alt link link-hover text-lg font-medium inline text-left'> register now</Link> </p>
+                            <p className='block text-center text-sm label opacity-80'>Already have account?
+                                <Link to='/login' className='label-text-alt link link-hover text-lg font-medium inline text-left'> Log in</Link> </p>
                         </div>
                     </div>
                 </div>
