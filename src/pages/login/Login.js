@@ -15,8 +15,6 @@ const Login = () => {
     const { logInUser, googleLogIn } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [loggedUser, setLoggedUser] = useState('');
-    const location =useLocation();
-    const navigate = useNavigate();
     // const location = useLocation();
     // const navigate = useNavigate();
     // const [token] = useToken(loggedUser)
@@ -25,8 +23,8 @@ const Login = () => {
     // if (token) {
     //     navigate(from, { replace: true })
     // }
-    
-    // //Log in User
+
+    //Log in User
     const handleLogIn = (event) => {
         event.preventDefault()
         setError('')
@@ -38,13 +36,14 @@ const Login = () => {
             .then(res => {
                 setLoggedUser(res.user.email)
                 toast.success("Log In sucessFul");
+                form.reset()
             })
             .catch(err => {
                 setError(err.message)
             })
     }
 
-    // //sign in with googel 
+    //sign in with googel 
     // const handleGoogle = () => {
     //     googleSignIn()
     //         .then(res => {
@@ -54,7 +53,7 @@ const Login = () => {
     //             const user = {
     //                 name: data.displayName,
     //                 email: data.email,
-    //                 title: "buyer"
+    //                 title: "user"
     //             }
 
     //             // send data in server for save db 
@@ -122,7 +121,7 @@ const Login = () => {
                                 <button className='bg-slate-300 p-3 rounded-full' onClick={handleGoogle}><FcGoogle className=' text-3xl w-full' /></button>
                             </div>
 
-                            <p className='block text-center text-sm label opacity-80'>new to MobileLy?
+                            <p className='block text-center text-sm label opacity-80'>New to Repliq?
                                 <Link to='/register' className='label-text-alt link link-hover inline text-left'> register now</Link> </p>
                         </div>
                     </div>
