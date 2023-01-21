@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import {RiDashboardFill} from "react-icons/ri"
+import { AuthContext } from './AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const Header = () => {
-    // const { user, logOut } = useContext(AuthContext);
+
+    const {user,logOut} = useContext(AuthContext);
 
     // //logOUt user 
-    // const handleLogOut = () => {
-    //     logOut()
-    //         .then(res => {
-    //             toast.success("Log out sucessFul");
-    //         })
-    //         .catch(err => console.log(err))
-    // }
+    const handleLogOut = () => {
+        logOut()
+            .then(res => {
+                toast.success("Log out sucessFul");
+            })
+            .catch(err => console.log(err))
+    }
     return (
         <div className="navbar bg-white sticky top-0 z-10 ">
             <div className="navbar-start">
@@ -23,11 +26,11 @@ const Header = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/' className='font-medium'>Home</Link></li>
                         <li><Link to='/category/1' className='font-medium'>ViVo</Link></li>
-                        {/* {
+                        {
                             user?.email &&
                             <li><Link to='/dashboard' className='font-medium'>Dashboard</Link></li>
 
-                        } */}
+                        }
                         <li><button  className=' btn btn-sm md:btn-md btn-primary ml-2 text-white'>Logout
                         </button></li>
                     </ul>
@@ -38,17 +41,17 @@ const Header = () => {
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to='/' className='font-medium'>Home</Link></li>
                     <li><Link to='/cart' className='font-medium'>Cart</Link></li>
-                    {/* {
+                    {
                         user?.email &&
                         <li><Link to='/dashboard' className='font-medium'>Dashboard</Link></li>
 
-                    } */}
+                    }
                 </ul>
             </div>
             <div className="navbar-end">
 
                 <label htmlFor="dashboard-drawer" className=" items-center flex mr-2 font-medium lg:hidden"> <RiDashboardFill className='text-lg font-bold' /></label>
-                {/* {
+                {
                     user?.email ? <>
                         <div className='tooltip tooltip-bottom' data-tip={user.displayName}>
                             <img src={user?.photoURL} className='h-10 w-10 tooltip  rounded-full' alt="img" />
@@ -56,9 +59,8 @@ const Header = () => {
                         <button onClick={handleLogOut} className='hidden sm:inline-block btn btn-sm md:btn-md btn-primary ml-2 text-white'>Logout
                         </button></>
                         :
-                        <Link to='/login' className='btn btn-primary text-white'>Login</Link>} */}
-                        <button className='hidden sm:inline-block btn btn-sm md:btn-md btn-primary ml-2 text-white'>Login
-                        </button>
+                        <Link to='/login' className='btn btn-primary text-white'>Login</Link>}
+                        
             </div>
         </div>
     );
