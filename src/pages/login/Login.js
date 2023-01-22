@@ -96,7 +96,7 @@ const Login = () => {
                                     </label>
                                     <div>
                                         <AiOutlineMail className='inline-block text-lg font-medium' />
-                                        <input type="email" name="email" placeholder="email" className="p-3 border-b-2 focus:outline-none focus:border-b-4 font-medium text-lg" />
+                                        <input type="email" name="email" placeholder="email" className="p-3 border-b-2 focus:outline-none focus:border-b-4 focus:border-stone-700 font-medium text-lg" />
                                     </div>
                                 </div>
                                 <div className="form-control">
@@ -105,7 +105,7 @@ const Login = () => {
                                     </label>
                                     <div>
                                         <RiLockPasswordLine className='inline-block text-lg font-medium' />
-                                        <input type="password" placeholder="Password" name='password' className="p-3 border-b-2 focus:outline-none focus:border-b-4 font-medium text-lg" />
+                                        <input type="password" placeholder="Password" name='password' className="p-3 border-b-2 focus:outline-none focus:border-stone-700 focus:border-b-4 font-medium text-lg" />
                                     </div>
                                     <label className="labelt">
                                         <Link to="/" className="label-text-alt link link-hover block text-right  font-medium text-[16px] pt-2 opacity-80">Forgot password?</Link>

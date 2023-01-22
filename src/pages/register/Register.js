@@ -46,7 +46,7 @@ const Register = () => {
                                     </label>
                                     <div>
                                         <SiNamecheap className='inline-block text-lg font-medium' />
-                                        <input type="text" name="name" placeholder="Md Hasan" className="p-3 border-b-2 focus:outline-none focus:border-b-4 font-medium text-lg" required />
+                                        <input type="text" name="name" placeholder="Md Hasan" className="p-3 border-b-2 focus:outline-none focus:border-b-4 focus:border-stone-700 font-medium text-lg" required />
                                     </div>
                                 </div>
 
@@ -57,7 +57,7 @@ const Register = () => {
                                     </label>
                                     <div>
                                         <AiOutlineMail className='inline-block text-lg font-medium' />
-                                        <input type="email" name="email" placeholder="example@gmail.com" className="p-3 border-b-2 focus:outline-none focus:border-b-4 font-medium text-lg" required/>
+                                        <input type="email" name="email" placeholder="example@gmail.com" className="p-3 border-b-2 focus:border-stone-700 focus:outline-none focus:border-b-4 font-medium text-lg" required/>
                                     </div>
                                 </div>
 
@@ -68,7 +68,7 @@ const Register = () => {
                                     </label>
                                     <div>
                                         <RiLockPasswordLine className='inline-block text-lg font-medium' />
-                                        <input type="password" placeholder="Password" name='password' className="p-3 border-b-2 focus:outline-none focus:border-b-4 font-medium text-lg" required />
+                                        <input type="password" placeholder="Password" name='password'  className="p-3 border-b-2 focus:outline-none focus:border-stone-700 focus:border-b-4 font-medium text-lg" required />
                                     </div>
                                 </div>
                                 <p className='text-sm text-red-500 py-2'>{error}</p>
