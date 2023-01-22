@@ -4,7 +4,7 @@ import Header from '../components/shared/Header';
 
 const Main = () => {
     return (
-        <div className='max-w-7xl mx-auto'>
+        <div className='max-w-[1400px] mx-auto'>
             <Header/>
             <Outlet/>
         </div>

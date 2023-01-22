@@ -1,0 +1,50 @@
+[
+    {
+        "name":"Banana",
+        "img":"https://i.ibb.co/GWFksbX/bannana.jpg",
+        "price": "$42 kg",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to"
+    },
+    {
+        "name":"Black Graps",
+        "img":"https://i.ibb.co/SVsfQw3/black-graps.jpg",
+        "price": "$60 kg",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to"
+    },
+    {
+        "name":"Kashmeer Apple",
+        "img":"https://i.ibb.co/MMrWZf6/idian-apple.jpg",
+        "price": "$3 kg",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to"
+    },
+    {
+        "name":"Jusse Orange",
+        "img":"https://i.ibb.co/hc700Y3/juse-orrange.jpg",
+        "price": "$9 kg",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to"
+    },
+    {
+        "name":"Switzerland Strobrary",
+        "img":"https://i.ibb.co/y01rFK9/like-strobary.jpg",
+        "price": "$20 kg",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to"
+    },
+    {
+        "name":"Orange",
+        "img":"https://i.ibb.co/m528WQ9/orange.jpg",
+        "price": "$4 kg",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to"
+    },
+    {
+        "name":"Pomegranate",
+        "img":"https://i.ibb.co/cDYKQXR/pomegranate.jpg",
+        "price": "$12 kg",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to"
+    },
+    {
+        "name":"Strobrary",
+        "img":"https://i.ibb.co/rkG6Fgn/strabary.jpg",
+        "price": "$15 kg",
+        "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to"
+    }
+]

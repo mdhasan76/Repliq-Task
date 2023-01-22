@@ -1,9 +1,10 @@
 import React from 'react';
-
+import banner from "../../assets/img/slider-img.jpg"
 const Home = () => {
     return (
-        <div>
-          THis is HOme page  
+        <div className='relative'>
+          <div className='absolute w-full h-full left-0  bg-gradient-to-t from-cyan-500 to-blue-500 opacity-80'></div>
+          <img alt="banner" className='h-[80vh]' src={banner} />  
         </div>
     );
 };
