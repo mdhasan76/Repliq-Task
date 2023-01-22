@@ -34,7 +34,7 @@ const Login = () => {
 
         logInUser(email, password)
             .then(res => {
-                setLoggedUser(res.user.email)
+                setLoggedUser(res.user.email);
                 toast.success("Log In sucessFul");
                 form.reset()
             })

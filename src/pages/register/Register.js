@@ -5,10 +5,11 @@ import { SiNamecheap } from 'react-icons/si';
 import { AiOutlineMail } from 'react-icons/ai';
 import { AuthContext } from '../../components/shared/AuthProvider';
 import { toast } from 'react-hot-toast';
+import axios from 'axios';
 
 const Register = () => {
 
-    const {createUser,updateUser} = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
     const [error, setError] = useState('');
 
     // Register new User
@@ -19,17 +20,29 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const type = form.type.value;
         createUser(email, password)
-        .then(result =>{
-            updateUser(name)
-            .then(res => {
-                console.log(res.user);
-                toast.success("Create Account Successfully")
-                form.reset()
+            .then(result => {
+                updateUser(name)
+                    .then(res => {
+                        axios.post(`http://localhost:5000/users`, {
+                            name,
+                            email,
+                            type,
+                            password
+                        })
+                            .then(res => {
+                                if(res.data.acknowledged){
+                                    toast.success("Create Account Successfully")
+                                    form.reset()
+                                }
+                            })
+                            .catch(err => console.log(err))
+
+                    })
+                    .catch(err => console.log(err))
             })
-            .catch(err => console.log(err))
-        })
-        .catch(err => setError(err.message))
+            .catch(err => setError(err.message))
     }
     return (
         <section>
@@ -57,7 +70,7 @@ const Register = () => {
                                     </label>
                                     <div>
                                         <AiOutlineMail className='inline-block text-lg font-medium' />
-                                        <input type="email" name="email" placeholder="example@gmail.com" className="p-3 border-b-2 focus:border-stone-700 focus:outline-none focus:border-b-4 font-medium text-lg" required/>
+                                        <input type="email" name="email" placeholder="example@gmail.com" className="p-3 border-b-2 focus:border-stone-700 focus:outline-none focus:border-b-4 font-medium text-lg" required />
                                     </div>
                                 </div>
 
@@ -68,9 +81,23 @@ const Register = () => {
                                     </label>
                                     <div>
                                         <RiLockPasswordLine className='inline-block text-lg font-medium' />
-                                        <input type="password" placeholder="Password" name='password'  className="p-3 border-b-2 focus:outline-none focus:border-stone-700 focus:border-b-4 font-medium text-lg" required />
+                                        <input type="password" placeholder="Password" name='password' className="p-3 border-b-2 focus:outline-none focus:border-stone-700 focus:border-b-4 font-medium text-lg" required />
                                     </div>
                                 </div>
+
+                                {/* Email Input  */}
+                                <div className="form-control">
+                                    <label className="label pb-0">
+                                        <span className="label-text text-lg font-semibold">Create Account as a?</span>
+                                    </label>
+                                    <div>
+                                        <select className="p-3 w-full border-1 focus:border-stone-700  font-medium text-lg" name='type'>
+                                            <option>Admin</option>
+                                            <option>User</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <p className='text-sm text-red-500 py-2'>{error}</p>
                                 <div className="form-control">
                                     <button className="btn text-white border-none rounded-full bg-gradient-to-bl from-indigo-500 to-primary">Submit</button>
