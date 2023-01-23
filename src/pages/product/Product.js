@@ -34,7 +34,7 @@ const Product = () => {
     }
 
     return (
-        <div className='grid grid-cols-3 gap-5 mt-16'>
+        <div className='p-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-16'>
             {
                 data.map(d => <div key={d._id} className="border-2">
                     <div className='[&_div]:hover:top-0 [&_div]:hover:visible relative' to="">
