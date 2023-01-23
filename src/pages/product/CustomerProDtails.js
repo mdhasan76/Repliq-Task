@@ -7,6 +7,7 @@ const CustomerProDtails = () => {
     return (
         <div className='mt-20'>
             {data.details}
+            {data.price}
         </div>
     );
 };
