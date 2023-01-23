@@ -6,6 +6,7 @@ import AddCustomer from "../../pages/dashboard/AddCustomer";
 import AddProduct from "../../pages/dashboard/AddProduct";
 import AllCustomer from "../../pages/dashboard/AllCustomer";
 import AllProducts from "../../pages/dashboard/AllProducts";
+import CustomerDtails from "../../pages/dashboard/CustomerDtails";
 import Orders from "../../pages/dashboard/Orders";
 import ProductsDtails from "../../pages/dashboard/ProductsDtails";
 import Home from "../../pages/home/Home";
@@ -44,6 +45,11 @@ export const router = createBrowserRouter([
                 path: "/products/:id",
                 loader: ({params}) => fetch(`${process.env.REACT_APP_URL}/products/${params.id}`),
                 element: <CustomerProDtails/>
+            },
+            {
+                path: "/users/:id",
+                loader: ({params}) => fetch(`${process.env.REACT_APP_URL}/users/${params.id}`),
+                element: <CustomerDtails/>
             }
         ]
     },

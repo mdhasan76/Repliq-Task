@@ -6,24 +6,24 @@ import { AuthContext } from '../../components/shared/AuthProvider';
 
 const CustomerProDtails = () => {
     const data = useLoaderData();
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
 
     // Handle Order 
-    const handleOrder = () =>{
+    const handleOrder = () => {
         axios.post(`${process.env.REACT_APP_URL}/orders`, {
-                            name: user.displayName,
-                            email: user.email,
-                            productName: data.name,
-                            img: data.img,
-                            price: data.price,
-                            id:data._id 
-                        })
-                            .then(res => {
-                                if(res.data.acknowledged){
-                                    toast.success("Ordered Submitted Successfully")
-                                }
-                            })
-                            .catch(err => console.log(err))
+            name: user.displayName,
+            email: user.email,
+            productName: data.name,
+            img: data.img,
+            price: data.price,
+            id: data._id
+        })
+            .then(res => {
+                if (res.data.acknowledged) {
+                    toast.success("Ordered Submitted Successfully")
+                }
+            })
+            .catch(err => console.log(err))
     }
 
     return (

@@ -45,7 +45,7 @@ const Product = () => {
                         </div>
                         <div className='absolute duration-300 top-full w-full h-full bg-slate-700 opacity-60 grid place-content-center  invisible'>
                             <div>
-                                <Link to={`/products/${d._id}`} className='border-2 mr-2 border-white px-3 py-2 text-white'>Buy Now</Link>
+                                <Link to={`/products/${d._id}`} className='border-2 mr-2 border-white px-3 py-2 text-white'>Details</Link>
                                 <button onClick={() => addToCart(d)} className='border-2 border-white px-3 py-2 text-white'>Add To Cart</button>
                             </div>
                         </div>
