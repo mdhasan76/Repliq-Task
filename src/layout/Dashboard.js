@@ -4,7 +4,7 @@ import Header from '../components/shared/Header';
 
 const Dashboard = () => {
     return (
-        <section className='max-w-[1400px] mx-auto mt-10'>
+        <section className='max-w-[1400px] mx-auto'>
 
             {/* Dashboard Header  */}
             <Header />
