@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-import { ImPriceTag } from 'react-icons/im';
+import React from 'react';
 import { SiNamecheap } from 'react-icons/si';
-import { ImImage } from "react-icons/im"
+import { AiOutlineMail} from "react-icons/ai"
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
 const AddCustomer = () => {
-    const [error, setError] = useState("");
-    const imgbbAPI = process.env.REACT_APP_imgbb;
-    console.log(imgbbAPI)
+
     // Sumbit FOrm
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -57,7 +54,7 @@ const AddCustomer = () => {
                                         <span className="label-text text-lg font-semibold">Email</span>
                                     </label>
                                     <div>
-                                        <SiNamecheap className='inline-block text-lg font-medium' />
+                                        <AiOutlineMail className='inline-block text-lg font-medium' />
                                         <input type="text" name="email" placeholder="hasan@gmail.com" className="p-3 border-b-2 focus:outline-none focus:border-b-4 focus:border-stone-700 font-medium text-lg" required />
                                     </div>
                                 </div>
@@ -75,7 +72,6 @@ const AddCustomer = () => {
                                     </div>
                                 </div>
 
-                                <p className='text-sm text-red-500 py-2'>{error}</p>
                                 <div className="form-control">
                                     <button className="btn text-white border-none rounded-full bg-gradient-to-bl from-indigo-500 to-primary">Submit</button>
                                 </div>

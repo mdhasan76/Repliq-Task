@@ -16,6 +16,8 @@ import CustomerProDtails from "../../pages/product/CustomerProDtails";
 import Product from "../../pages/product/Product";
 import Register from "../../pages/register/Register";
 import ErrorPage from "../shared/ErrorPage";
+import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute"
 
 export const router = createBrowserRouter([
     {
@@ -24,7 +26,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element:<Home/>
+                element:<PrivateRoute><Home/></PrivateRoute>
             },
             {
                 path: "/login",
@@ -56,7 +58,7 @@ export const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <Dashboard/>,
+        element:<Dashboard/>,
         children:[
             {
                 path: "/dashboard",

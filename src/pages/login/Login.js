@@ -15,10 +15,10 @@ const Login = () => {
     const { logInUser, googleLogIn } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [loggedUser, setLoggedUser] = useState('');
-    // const location = useLocation();
-    // const navigate = useNavigate();
+    const location = useLocation();
+    const navigate = useNavigate();
     // const [token] = useToken(loggedUser)
-    // let from = location.state?.from?.pathname || "/";
+    let from = location.state?.from?.pathname || "/";
 
     // if (token) {
     //     navigate(from, { replace: true })
@@ -43,46 +43,43 @@ const Login = () => {
             })
     }
 
-    //sign in with googel 
-    // const handleGoogle = () => {
-    //     googleSignIn()
-    //         .then(res => {
-    //             const data = res.user;
+    // sign in with googel 
+    const handleGoogle = () => {
+        googleLogIn()
+            .then(res => {
+                const data = res.user;
 
-    //             //set a object for send data to server
-    //             const user = {
-    //                 name: data.displayName,
-    //                 email: data.email,
-    //                 title: "user"
-    //             }
+                //set a object for send data to server
+                const user = {
+                    name: data.displayName,
+                    email: data.email,
+                    type: "User"
+                }
 
-    //             // send data in server for save db 
-    //             fetch(`${process.env.REACT_APP_URL}/users`, {
-    //                 method: "POST",
-    //                 headers: {
-    //                     'content-type': 'application/json',
-    //                     authorization: `bearer ${localStorage.getItem('token')}`
-    //                 },
-    //                 body: JSON.stringify(user)
-    //             })
-    //                 .then(res => res.json())
-    //                 .then(dbdata => {
-    //                     if (dbdata.acknowledged) {
-    //                         console.log(dbdata)
-    //                         toast.success("Log in Sucessfull")
-    //                         console.log(res.user);
-    //                         navigate(from, { replace: true })
-    //                     }
-    //                 })
-    //         })
-    //         .catch(err => {
-    //             setError(err.message)
-    //         })
-    // }
-
-    const handleGoogle =() =>{
-        console.log("login")
+                // send data in server for save db 
+                fetch(`${process.env.REACT_APP_URL}/users`, {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json',
+                        authorization: `bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(dbdata => {
+                        if (dbdata.acknowledged) {
+                            console.log(dbdata)
+                            toast.success("Log in Sucessfull")
+                            console.log(res.user);
+                            navigate(from, { replace: true })
+                        }
+                    })
+            })
+            .catch(err => {
+                setError(err.message)
+            })
     }
+
     return (
         <section>
             <div>
