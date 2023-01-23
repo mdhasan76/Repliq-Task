@@ -1,5 +1,8 @@
 REPLIQ Task
 
+Admin gmail:- admin@gmail.com
+admin pass:- 123456
+
 <----------------------important------------------------>
 N: B: if you log in with google this account will Create as a "User". IF you want to Create admin type account just go to sign up page and create a account as a Admin type. then you will show Dashboard.
 
