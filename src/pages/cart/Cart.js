@@ -17,7 +17,6 @@ const Cart = () => {
 
   // Delete Cart Item
   const handleDelete = (id) => {
-
     fetch(`${process.env.REACT_APP_URL}/cart/${id}`, {
       method: "DELETE"
     })
@@ -33,9 +32,10 @@ const Cart = () => {
 
   return (
     <div className='max-w-4xl mx-auto mt-20 p-5'>
+
+      {/* Conditional Text and Table show. If has product in cart or not */}
       {
         data.length <= 0 ?
-
           <p className='text-3xl mt-20 p-4 font-semibold text-center'>NO Data Added yet</p>
           :
           <div className="overflow-x-auto">
