@@ -22,7 +22,7 @@ const AddProduct = () => {
         formData.append('image', img)
 
         // Send img in Img hoising (imgbb)
-        fetch(`https://api.imgbb.com/1/upload?expiration=600&key=${imgbbAPI}`, {
+        fetch(`https://api.imgbb.com/1/upload?key=${imgbbAPI}`, {
             method: "POST",
             body: formData
         })
