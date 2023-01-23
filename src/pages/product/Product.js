@@ -16,11 +16,14 @@ const Product = () => {
     }, [])
 
     // Add To cart Product 
-    const addToCart = (id) => {
+    const addToCart = (val) => {
         axios.post(`${process.env.REACT_APP_URL}/cart`, {
-            id,
+            id:val._id,
             orderBy: user.email,
-            name:user.displayName
+            name:user.displayName,
+            price:val.price,
+            img:val.img,
+            pName: val.name
         })
         .then(res => {
             if (res.data.acknowledged) {
@@ -38,12 +41,12 @@ const Product = () => {
                         <img alt="fruit" src={d?.img} className="h-72 w-full" />
                         <div className='flex justify-between px-3 text-xl'>
                             <h3 className='text-center font-medium  py-3'>{d.name}</h3>
-                            <h3 className='text-center font-medium py-3'>{d.price}</h3>
+                            <h3 className='text-center font-medium py-3'>${d.price} kg</h3>
                         </div>
                         <div className='absolute duration-300 top-full w-full h-full bg-slate-700 opacity-60 grid place-content-center  invisible'>
                             <div>
                                 <Link to={`/products/${d._id}`} className='border-2 mr-2 border-white px-3 py-2 text-white'>Buy Now</Link>
-                                <button onClick={() => addToCart(d._id)} className='border-2 border-white px-3 py-2 text-white'>Add To Cart</button>
+                                <button onClick={() => addToCart(d)} className='border-2 border-white px-3 py-2 text-white'>Add To Cart</button>
                             </div>
                         </div>
                     </div>
