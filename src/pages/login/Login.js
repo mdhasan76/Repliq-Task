@@ -7,7 +7,6 @@ import { FcGoogle } from 'react-icons/fc';
 // import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 // import useToken from '../../shared/hooks/useTokenjwt';
-import Header from '../../components/shared/Header';
 import { AuthContext } from '../../components/shared/AuthProvider';
 import { toast } from 'react-hot-toast';
 

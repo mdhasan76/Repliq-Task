@@ -4,11 +4,13 @@ import { RiDashboardFill } from "react-icons/ri"
 import { FaUserCheck } from "react-icons/fa"
 import { AuthContext } from './AuthProvider';
 import { toast } from 'react-hot-toast';
+import useAdmin from '../../customHooks/useAdmin';
 
 const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
-
+    const [isAdmin, adminLoading] = useAdmin(user?.email)
+    console.log(isAdmin)
     // //logOUt user 
     const handleLogOut = () => {
         logOut()
@@ -43,7 +45,7 @@ const Header = () => {
                     <li><Link to='/product' className='font-medium'>Product</Link></li>
                     <li><Link to='/cart' className='font-medium'>Cart</Link></li>
                     {
-                        user?.email &&
+                        isAdmin &&
                         <li><Link to='/dashboard' className='font-medium'>Dashboard</Link></li>
 
                     }
