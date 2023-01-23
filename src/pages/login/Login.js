@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom'
 import { AiOutlineMail } from 'react-icons/ai';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { FcGoogle } from 'react-icons/fc';
-// import { AuthContext } from '../../shared/AuthProvider';
-// import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
-// import useToken from '../../shared/hooks/useTokenjwt';
 import { AuthContext } from '../../components/shared/AuthProvider';
 import { toast } from 'react-hot-toast';
+import useToken from '../../customHooks/useToken';
 
 const Login = () => {
     const { logInUser, googleLogIn } = useContext(AuthContext);
@@ -16,12 +14,12 @@ const Login = () => {
     const [loggedUser, setLoggedUser] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
-    // const [token] = useToken(loggedUser)
+    const [token] = useToken(loggedUser);
     let from = location.state?.from?.pathname || "/";
 
-    // if (token) {
-    //     navigate(from, { replace: true })
-    // }
+    if (token) {
+        navigate(from, { replace: true })
+    }
 
     //Log in User
     const handleLogIn = (event) => {
@@ -30,12 +28,29 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-
+        const user = {
+            email,
+            password,
+        }
         logInUser(email, password)
             .then(res => {
-                setLoggedUser(res.user.email);
-                toast.success("Log In sucessFul");
-                form.reset()
+                fetch(`${process.env.REACT_APP_URL}/users`, {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json',
+                        authorization: `bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify(user)
+                }).then(res => res.json())
+                    .then(dbdata => {
+                        if (dbdata.acknowledged) {
+                            setLoggedUser(res.user.email);
+                            form.reset()
+                            console.log(dbdata)
+                            toast.success("Log in Sucessfull")
+                            navigate(from, { replace: true })
+                        }
+                    })
             })
             .catch(err => {
                 setError(err.message)

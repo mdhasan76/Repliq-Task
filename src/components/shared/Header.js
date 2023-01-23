@@ -9,8 +9,8 @@ import useAdmin from '../../customHooks/useAdmin';
 const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
-    const [isAdmin, adminLoading] = useAdmin(user?.email)
-    console.log(isAdmin)
+    const [isAdmin] = useAdmin(user?.email);
+    
     // //logOUt user 
     const handleLogOut = () => {
         logOut()
