@@ -28,6 +28,7 @@ const AllCustomer = () => {
                     <th></th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Type</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -37,6 +38,9 @@ const AllCustomer = () => {
                       <th>{i + 1}</th>
                       <td>{d.name}</td>
                       <td className='font-medium'>{d.email}</td>
+                      <td>
+                        {d.type}
+                      </td>
                       <td>
                         <Link to={`/users/${d._id}`} className="btn btn-sm btn-info mr-2">Dtails</Link>
                       </td>

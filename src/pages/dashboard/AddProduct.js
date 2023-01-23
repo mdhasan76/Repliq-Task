@@ -3,7 +3,9 @@ import { ImImage, ImPriceTag } from 'react-icons/im';
 import { SiNamecheap } from 'react-icons/si';
 
 const AddProduct = () => {
-    const [error, setError] = useState("")
+    const [error, setError] = useState("");
+    const imgbbAPI = process.env.REACT_APP_imgbb;
+    
      // Sumbit FOrm
      const handleSubmit = (e) =>{
         e.preventDefault()
@@ -14,25 +16,14 @@ const AddProduct = () => {
         const img = form.img.files[0];
         console.log(name, price, details,img)
 
-        // setDataLoading(true)
-        // // upload img in imgbb 
-        // const formData = new FormData();
-        // formData.append('image', img)
-        // fetch(`https://api.imgbb.com/1/upload?key=${imgbbAPI}`, {
-        //     method: "POST",
-        //     body: formData
-        // })
-        //     .then(res => res.json())
-        //     .then(imgdata => {
-        //         const userImg = imgdata.data.url;
-        //         const user = {
-        //             name: data.name,
-        //             email: data.email,
-        //             password: data.password,
-        //             img: userImg,
-        //             title: data.title
-
-        //         }
+        const formData = new FormData();
+        formData.append('image', img)
+        fetch(`https://api.imgbb.com/1/upload?expiration=600&key=${imgbbAPI}`, {
+            method: "POST",
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
     }
 
     return (

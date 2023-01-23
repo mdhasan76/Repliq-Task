@@ -25,7 +25,7 @@ const Register = () => {
             .then(result => {
                 updateUser(name)
                     .then(res => {
-                        axios.post(`http://localhost:5000/users`, {
+                        axios.post(`${process.env.REACT_APP_URL}/users`, {
                             name,
                             email,
                             type,
@@ -85,7 +85,7 @@ const Register = () => {
                                     </div>
                                 </div>
 
-                                {/* Email Input  */}
+                                {/*Account type  */}
                                 <div className="form-control">
                                     <label className="label pb-0">
                                         <span className="label-text text-lg font-semibold">Create Account as a?</span>
