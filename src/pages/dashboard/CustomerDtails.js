@@ -5,7 +5,7 @@ import { useLoaderData } from 'react-router-dom';
 const CustomerDtails = () => {
     const data = useLoaderData();
     return (
-        <section className='mt-20 mx-auto h-screen grid place-content-center'>
+        <section className='mt-20 mx-auto grid place-content-center'>
             <div className=" card w-96 bg-base-100 shadow-xl">
             <figure className='py-5'>
                 {/* <img src="https://placeimg.com/400/225/arch" alt="Shoes" /> */}
