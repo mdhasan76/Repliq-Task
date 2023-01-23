@@ -2,12 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../../layout/Dashboard";
 import Main from "../../layout/Main";
 import Cart from "../../pages/cart/Cart";
+import AddCustomer from "../../pages/dashboard/AddCustomer";
 import AllCustomer from "../../pages/dashboard/AllCustomer";
 import AllProducts from "../../pages/dashboard/AllProducts";
 import Orders from "../../pages/dashboard/Orders";
 import ProductsDtails from "../../pages/dashboard/ProductsDtails";
 import Home from "../../pages/home/Home";
 import Login from "../../pages/login/Login";
+import CustomerProDtails from "../../pages/product/CustomerProDtails";
 import Product from "../../pages/product/Product";
 import Register from "../../pages/register/Register";
 import ErrorPage from "../shared/ErrorPage";
@@ -36,6 +38,11 @@ export const router = createBrowserRouter([
             {
                 path: "/product",
                 element: <Product/>
+            },
+            {
+                path: "/products/:id",
+                loader: ({params}) => fetch(`${process.env.REACT_APP_URL}/products/${params.id}`),
+                element: <CustomerProDtails/>
             }
         ]
     },
@@ -65,7 +72,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:"/dashboard/addcustomer",
-                element: <ProductsDtails/> 
+                element: <AddCustomer/> 
             }
         ]
     },
